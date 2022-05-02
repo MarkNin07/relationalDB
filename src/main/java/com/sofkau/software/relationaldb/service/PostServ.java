@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 
-public class postServ implements postService{
+public class PostServ implements PostService {
 
     @Autowired
     private PostRepository postRepository;
