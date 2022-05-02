@@ -5,11 +5,12 @@ import com.sofkau.software.relationaldb.entity.Post;
 import com.sofkau.software.relationaldb.repository.CommentRepository;
 import com.sofkau.software.relationaldb.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 
 import java.util.List;
 
-
+@Service
 public class PostServ implements PostService {
 
     @Autowired
@@ -25,7 +26,7 @@ public class PostServ implements PostService {
 
     @Override
     public Post createComment(Comment comment) {
-        Post post = postRepository.findById(comment.getFK_post_id()).get();
+        Post post = postRepository.findById(comment.getFkPostId()).get();
         post.addComment(comment);
         commentRepository.save(comment);
         return postRepository.save(post);
